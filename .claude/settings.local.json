@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "permissions": {
+    "allow": [
+      "Bash(python:*)",
+      "Bash(chcp 65001)",
+      "Bash(set PYTHONIOENCODING=utf-8)",
+      "Bash(rm:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)",
+      "Bash($env:PYTHONIOENCODING=\"utf-8\")",
+      "Bash(mkdir:*)",
+      "Bash(venvScripts:*)",
+      "Bash(pip install:*)",
+      "Bash(\"venv\\Scripts\\pip.exe\" install soccerapi)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/oddApi.py)",
+      "Bash(\"venv\\Scripts\\pip.exe\":*)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/BWINScrapper.py)",
+      "Bash(\"C:\\Users\\moham\\Downloads\\foot\\venv\\Scripts\\python.exe\" \"C:\\Users\\moham\\Downloads\\foot\\utils\\BWINScrapper.py\")",
+      "Bash(cp:*)",
+      "Bash(find:*)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/CoteSportScrapper.py)",
+      "WebFetch(domain:www.livescore.in)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/LivescoreScrapper.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/APIFootballScrapper.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/TodayMatchScrapper.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/GetTodayMatches.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/CommunityShieldScrapper.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" utils/EuropeanLeaguesScrapper.py)",
+      "Bash(\"venv\\Scripts\\python.exe\" \"utils\\predict\\odds api.py\")",
+      "Bash(\"venv\\Scripts\\python.exe\" \"utils\\predict\\run_predictions.py\")",
+      "Bash(\"venv\\Scripts\\python.exe\" prediction_complete_pipeline.py)"
+    ],
+    "deny": []
+  }
+}
