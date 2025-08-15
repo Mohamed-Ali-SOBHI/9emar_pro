@@ -8,7 +8,18 @@ import pandas as pd
 import numpy as np
 from pathlib import Path
 import warnings
+import sys
+import os
 warnings.filterwarnings('ignore')
+
+# Import our new advanced features module
+sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+try:
+    from advanced_features import add_all_advanced_features as add_accuracy_features
+    ADVANCED_FEATURES_AVAILABLE = True
+except ImportError:
+    print("[WARNING] Advanced features module not available")
+    ADVANCED_FEATURES_AVAILABLE = False
 
 def add_advanced_team_features(df):
     """Ajoute des features avancées d'équipe"""
@@ -200,6 +211,14 @@ def add_all_enhanced_features(df_input):
     df = add_form_momentum_features(df)
     df = add_home_away_features(df)
     df = add_interaction_features(df)
+    
+    # Add our new advanced features for improved accuracy
+    if ADVANCED_FEATURES_AVAILABLE:
+        print("[FEATURE] Adding accuracy-boosting advanced features...")
+        df = add_accuracy_features(df)
+        print("[OK] Advanced features integrated successfully")
+    else:
+        print("[WARNING] Skipping advanced features - module not available")
     
     # Clean infinities and NaN
     print("[CLEANING] Handling infinities and NaN values...")

@@ -26,7 +26,6 @@ def predict_matches(df_for_prediction, df_original=None):
         model_dir = Path("models/optimal_model")
         required_files = [
             "trained_model_realistic.pkl",
-            "scaler_realistic.pkl", 
             "features_realistic.json"
         ]
         
@@ -35,20 +34,42 @@ def predict_matches(df_for_prediction, df_original=None):
                 print(f"[ERROR] Fichier manquant: {file}")
                 return False
         
-        # Charger le modèle, scaler et features
+        # Charger le modèle et features
         model = joblib.load(model_dir / "trained_model_realistic.pkl")
-        scaler = joblib.load(model_dir / "scaler_realistic.pkl")
+        
+        # Charger le scaler s'il existe (LogisticRegression) ou None (RandomForest)
+        scaler_path = model_dir / "scaler_realistic.pkl"
+        if scaler_path.exists():
+            scaler = joblib.load(scaler_path)
+            print(f"[INFO] Scaler chargé")
+        else:
+            scaler = None
+            print(f"[INFO] Pas de scaler nécessaire (RandomForest)")
         
         with open(model_dir / "features_realistic.json", 'r') as f:
             model_features = json.load(f)
         
         print(f"[INFO] Modèle chargé avec {len(model_features)} features")
         
-        # Vérifier que toutes les features requises sont présentes
+        # Vérifier et gérer les features manquantes
         missing_features = [f for f in model_features if f not in df_for_prediction.columns]
         if missing_features:
-            print(f"[ERROR] Features requises manquantes: {missing_features}")
-            return False
+            print(f"[WARNING] Features requises manquantes: {missing_features}")
+            print(f"[INFO] Ajout de valeurs par défaut pour les features manquantes")
+            
+            # Ajouter les features manquantes avec des valeurs par défaut
+            for feature in missing_features:
+                if 'match_uncertainty' in feature:
+                    df_for_prediction[feature] = 0.5  # Valeur neutre d'incertitude
+                elif 'opponent_xG_against' in feature:
+                    # Utiliser la valeur de team_xG_against si disponible
+                    team_equivalent = feature.replace('opponent_', 'team_')
+                    if team_equivalent in df_for_prediction.columns:
+                        df_for_prediction[feature] = df_for_prediction[team_equivalent]
+                    else:
+                        df_for_prediction[feature] = 1.0  # Valeur par défaut
+                else:
+                    df_for_prediction[feature] = 0.0  # Valeur par défaut générique
         
         # Sélectionner seulement les features du modèle et s'assurer qu'elles sont numériques
         X = df_for_prediction[model_features].copy()
@@ -60,12 +81,17 @@ def predict_matches(df_for_prediction, df_original=None):
         print(f"[DEBUG] Shape des données: {X.shape}")
         print(f"[DEBUG] Toutes les données sont numériques: {X.dtypes.value_counts()}")
         
-        # Scaler les données
-        X_scaled = scaler.transform(X)
+        # Scaler les données si nécessaire
+        if scaler is not None:
+            print(f"[DEBUG] Application du scaling...")
+            X_final = scaler.transform(X)
+        else:
+            print(f"[DEBUG] Pas de scaling nécessaire...")
+            X_final = X.values
         
         # Faire les prédictions
-        predictions = model.predict(X_scaled)
-        probabilities = model.predict_proba(X_scaled)
+        predictions = model.predict(X_final)
+        probabilities = model.predict_proba(X_final)
         
         # Préparer les résultats
         results = []

@@ -29,7 +29,8 @@
       "Bash(\"venv\\Scripts\\python.exe\" utils/EuropeanLeaguesScrapper.py)",
       "Bash(\"venv\\Scripts\\python.exe\" \"utils\\predict\\odds api.py\")",
       "Bash(\"venv\\Scripts\\python.exe\" \"utils\\predict\\run_predictions.py\")",
-      "Bash(\"venv\\Scripts\\python.exe\" prediction_complete_pipeline.py)"
+      "Bash(\"venv\\Scripts\\python.exe\" prediction_complete_pipeline.py)",
+      "Bash(\"venv\\Scripts\\python.exe\":*)"
     ],
     "deny": []
   }

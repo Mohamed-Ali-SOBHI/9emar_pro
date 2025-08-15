@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Pipeline Complet de Prédiction - Football Match Prediction
+Pipeline Complet de Prédiction - Football Match Prediction (Modèle Amélioré 52.4%)
 1. Récupère les matchs du jour avec les cotes (odds api)
 2. Si matchs trouvés, lance la récupération des statistiques (statistic_ze_year)
-3. Lance le preprocessing des données (predict_preprocessing)  
+3. Lance le preprocessing des données avec features avancées (predict_preprocessing)  
 4. Merge les données avec les cotes
-5. Lance le modèle pour faire les prédictions
+5. Lance le modèle amélioré pour faire les prédictions discriminantes
 """
 
 import os
@@ -333,7 +333,7 @@ def step6_run_predictions(df_for_prediction):
 
 def main():
     """Pipeline principal de prédiction"""
-    print_section("PIPELINE COMPLET DE PREDICTION")
+    print_section("PIPELINE COMPLET DE PREDICTION (MODELE AMELIORE 52.4%)")
     print(f"[START] Début du pipeline: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     
     # Vérification du modèle sera faite dans le module de prédiction

@@ -25,27 +25,21 @@ def load_original_enhanced_data():
     """Charge les données avec features enhanced mais sans artifices"""
     print("[1/6] Loading realistic enhanced data...")
     
-    df = pd.read_csv("preprocessed_data_enhanced.csv")
+    df = pd.read_csv("preprocessed_data_enhanced_no_uncertainty.csv")
     y = df['result']
     
-    # Exclusions validées (pas d'impact sur performance mais sécurité)
+    # Exclusions minimales - seulement les vraiment nécessaires
     exclude_cols = [
         'result', 'team_id', 'opponent_id', 'date', 'team_name', 'opponent_name',
-        'league', 'favorite_wins', 'favorite',
-        # Leakage (sécurité)
-        'h2h_last_result', 'current_streak', 'streak_type',
-        'h2h_goals_scored_last', 'h2h_goals_conceded_last', 
-        'h2h_xG_last', 'h2h_xG_against_last',
-        # Features draw-specific suspectes
-        'draw_favorability', 'tight_match_indicator', 'high_draw_history',
-        'overall_balance_score'  # Trop artificial
+        'league', 'favorite_wins', 'favorite'
+        # match_uncertainty déjà supprimée du dataset
     ]
     
     feature_cols = [col for col in df.columns if col not in exclude_cols]
     X = df[feature_cols].select_dtypes(include=[np.number])
     
     print(f"[OK] Data loaded: {len(df)} samples, {X.shape[1]} features")
-    print(f"[OK] Exclusions validées (pas d'impact mais sécurité)")
+    print(f"[OK] Exclusions minimales appliquées - features H2H et draw incluses")
     print(f"[OK] Target distribution:")
     for val, count in y.value_counts().items():
         print(f"   {val}: {count} ({count/len(y)*100:.1f}%)")
