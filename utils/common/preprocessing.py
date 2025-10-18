@@ -4,6 +4,7 @@ import glob
 import numpy as np
 from tqdm import tqdm
 from functools import lru_cache
+from collections import defaultdict
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -647,6 +648,107 @@ def calculate_season_metrics(df):
     return df
 
 
+def add_schedule_and_elo_features(df, base_rating=1500.0, k_factor=20.0, home_advantage=65.0):
+    """
+    Compute pre-match Elo ratings and rest-day features in a time-aware manner.
+    Ratings are tracked separately per league to avoid cross-competition leakage.
+    """
+    required_columns = {'team_name', 'opponent_name', 'date'}
+    if not required_columns.issubset(df.columns):
+        print("Skipping Elo/rest features: required columns are missing.")
+        return df
+
+    print("Adding Elo strength and rest-day schedule features...")
+
+    working = df[['team_name', 'opponent_name', 'date']].copy()
+    working['league'] = df['league'].fillna('GLOBAL') if 'league' in df.columns else 'GLOBAL'
+    working['match_date'] = pd.to_datetime(df['date'], errors='coerce')
+    working['match_result'] = df['result'] if 'result' in df.columns else pd.Series(np.nan, index=df.index)
+    working['orig_index'] = working.index
+    working = working.sort_values(['league', 'match_date', 'orig_index']).reset_index(drop=True)
+
+    ratings = defaultdict(lambda: float(base_rating))
+    last_played = {}
+
+    team_elo_values = []
+    opponent_elo_values = []
+    team_rest_values = []
+    opponent_rest_values = []
+    elo_probability_values = []
+
+    for row in working.itertuples():
+        league = row.league if isinstance(row.league, str) and row.league else 'GLOBAL'
+        home_team = row.team_name if isinstance(row.team_name, str) else None
+        away_team = row.opponent_name if isinstance(row.opponent_name, str) else None
+        match_date = row.match_date
+
+        if not home_team or not away_team:
+            team_elo_values.append(np.nan)
+            opponent_elo_values.append(np.nan)
+            team_rest_values.append(np.nan)
+            opponent_rest_values.append(np.nan)
+            elo_probability_values.append(np.nan)
+            continue
+
+        home_key = (league, home_team)
+        away_key = (league, away_team)
+
+        home_rating = ratings[home_key]
+        away_rating = ratings[away_key]
+
+        team_elo_values.append(home_rating)
+        opponent_elo_values.append(away_rating)
+
+        if pd.notna(match_date):
+            last_home = last_played.get(home_key)
+            last_away = last_played.get(away_key)
+            team_rest_values.append((match_date - last_home).days if last_home is not None else np.nan)
+            opponent_rest_values.append((match_date - last_away).days if last_away is not None else np.nan)
+            expected_home = 1.0 / (1.0 + 10 ** ((away_rating - (home_rating + home_advantage)) / 400))
+            last_played[home_key] = match_date
+            last_played[away_key] = match_date
+        else:
+            team_rest_values.append(np.nan)
+            opponent_rest_values.append(np.nan)
+            expected_home = 0.5
+
+        elo_probability_values.append(expected_home)
+
+        result_val = row.match_result if isinstance(row.match_result, str) else None
+        if result_val in ('w', 'd', 'l') and pd.notna(match_date):
+            score_home = {'w': 1.0, 'd': 0.5, 'l': 0.0}[result_val]
+            score_away = 1.0 - score_home
+            expected_away = 1.0 - expected_home
+            ratings[home_key] = home_rating + k_factor * (score_home - expected_home)
+            ratings[away_key] = away_rating + k_factor * (score_away - expected_away)
+
+    working['team_elo_rating'] = team_elo_values
+    working['opponent_elo_rating'] = opponent_elo_values
+    working['team_rest_days'] = team_rest_values
+    working['opponent_rest_days'] = opponent_rest_values
+    working['elo_win_probability'] = elo_probability_values
+
+    for column in ['team_elo_rating', 'opponent_elo_rating', 'team_rest_days',
+                   'opponent_rest_days', 'elo_win_probability']:
+        if column not in df.columns:
+            df[column] = np.nan
+        df.loc[working['orig_index'], column] = working[column].values
+
+    if 'elo_rating_gap' not in df.columns:
+        df['elo_rating_gap'] = np.nan
+    df['elo_rating_gap'] = df['team_elo_rating'] - df['opponent_elo_rating']
+
+    if 'rest_days_diff' not in df.columns:
+        df['rest_days_diff'] = np.nan
+    df['rest_days_diff'] = df['team_rest_days'] - df['opponent_rest_days']
+
+    if 'rest_days_ratio' not in df.columns:
+        df['rest_days_ratio'] = np.nan
+    df['rest_days_ratio'] = df['team_rest_days'] / (df['opponent_rest_days'] + 1.0)
+
+    return df
+
+
 def remove_post_match_features(df):
     """
     Remove features that would only be available after the match and keep/calculate relevant pre-match features
@@ -718,7 +820,9 @@ def remove_post_match_features(df):
         'h2h_dominance', 'xG_strength_diff', 'defensive_strength_diff',
         'form_diff_5', 'form_momentum', 'ppg_vs_league_avg',
         'opponent_form_score_5', 'opponent_form_score_10', 'opponent_current_streak',
-        'opponent_season_points_per_game'
+        'opponent_season_points_per_game',
+        'team_elo_rating', 'opponent_elo_rating', 'elo_rating_gap', 'elo_win_probability',
+        'team_rest_days', 'opponent_rest_days', 'rest_days_diff', 'rest_days_ratio'
     ]
     engineered_columns = [col for col in engineered_columns_potential if col in df.columns]
 
@@ -871,6 +975,9 @@ def preprocess_data_memory_only(df_input=None):
         
         # Remove duplicates
         df = remove_duplicate_matches(df)
+
+        # Add schedule & Elo features before any aggregation
+        df = add_schedule_and_elo_features(df)
         
         # Calculate head-to-head statistics
         if all(col in df.columns for col in ['date', 'team_id', 'opponent_id']):
@@ -925,6 +1032,9 @@ def preprocess_data(add_features=True, remove_duplicates_flag=True):
         # Remove duplicates if requested
         if remove_duplicates_flag:
             df = remove_duplicate_matches(df)
+        
+        # Add schedule & Elo features prior to aggregations
+        df = add_schedule_and_elo_features(df)
         
         # Calculate head-to-head statistics (needs date, team_id, opponent_id)
         if all(col in df.columns for col in ['date', 'team_id', 'opponent_id']):

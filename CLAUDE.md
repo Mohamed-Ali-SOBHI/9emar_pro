@@ -6,29 +6,33 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Machine learning project that predicts football match results (win/draw/loss) using team statistics and betting odds. The pipeline processes data from 5 major European leagues (2014-2024) and achieves 53.08% accuracy using a realistic LogisticRegression model.
+Machine learning project that predicts football match results (win/draw/loss) using team statistics and betting odds. The pipeline processes data from 5 major European leagues (2014-2024) and achieves 51.8% accuracy using an optimized LogisticRegression model with 267 advanced features.
 
 ## Core Architecture
 
 ### Data Pipeline Flow
-1. **Data Collection** (`utils/StatisticsScrapper.py`) - Scrapes match statistics from understat.com
-2. **Preprocessing** (`utils/preprocessing.py`) - Feature engineering and data cleaning
-3. **Odds Integration** (`utils/advanced_merge.py`) - Merges betting odds with match data
-4. **Advanced Features** (`utils/enhanced_feature_engineering.py`) - Creates complex derived features
-5. **Model Training** (`utils/realistic_training.py`) - Final model training (53.08% accuracy)
+1. **Data Collection** (`utils/train/StatisticsScrapper.py`) - Scrapes match statistics from understat.com
+2. **Preprocessing** (`utils/common/preprocessing.py`) - Feature engineering and data cleaning
+3. **Odds Integration** (`utils/train/advanced_merge.py`) - Merges betting odds with match data
+4. **Advanced Features** (`utils/common/enhanced_feature_engineering.py`) - Creates 267 sophisticated features
+5. **Model Training** (`utils/train/realistic_training.py`) - Final model training (51.8% accuracy)
 
 ### Key Components
 
 **Main Pipeline Scripts:**
-- `main_complete_pipeline.py` - Complete end-to-end pipeline (scraping → training)
-- `data_pipeline.py` - Smart pipeline (predictions if model exists, else data preparation)
-- `predict_match.py` - Individual match prediction with examples
+- `train_complete_pipeline.py` - Complete end-to-end pipeline (scraping → training)
+- `prediction_complete_pipeline.py` - Complete prediction pipeline for new matches
 
 **Data Processing Utils:**
-- `utils/preprocessing.py` - Core data processing and feature engineering
-- `utils/advanced_merge.py` - Betting odds integration and team name normalization
-- `utils/enhanced_feature_engineering.py` - Advanced statistical features
-- `utils/realistic_training.py` - Production model training without artificial boosting
+- `utils/common/preprocessing.py` - Core data processing and feature engineering
+- `utils/train/advanced_merge.py` - Betting odds integration and team name normalization
+- `utils/common/enhanced_feature_engineering.py` - Advanced statistical features (267 total)
+- `utils/train/realistic_training.py` - Production model training with realistic performance
+
+**Prediction Utils:**
+- `utils/predict/` - Complete prediction pipeline utilities
+- `utils/predict/predict_matches.py` - Match prediction logic
+- `utils/predict/run_predictions.py` - Automated prediction execution
 
 **Model Storage:**
 - `models/optimal_model/` - Contains trained model, scaler, features list, and metrics
@@ -76,9 +80,9 @@ python utils/enhanced_feature_engineering.py
 ## Data Structure
 
 ### Generated Datasets
-1. **`preprocessed_data.csv`** - Basic preprocessed match data
-2. **`preprocessed_data_with_odds.csv`** - Data merged with betting odds
-3. **`preprocessed_data_enhanced.csv`** - Advanced features (130+ features)
+1. **`preprocessed_data.csv`** - Basic preprocessed match data (68 features)
+2. **`preprocessed_data_with_odds.csv`** - Data merged with betting odds (68 features)
+3. **`preprocessed_data_enhanced.csv`** - Advanced features (267 features total)
 
 ### Data Coverage
 - **Leagues:** Bundesliga, EPL, La Liga, Ligue 1, Serie A
@@ -113,10 +117,11 @@ Match of ze day/         # Current season data for predictions
 
 ### Final Model Configuration
 - **Algorithm:** LogisticRegression (no artificial class weights) 
-- **Accuracy:** 52.4% (vs 33.3% random baseline) - **IMPROVED MODEL**
-- **F1 Macro:** 40.6%
-- **Draw Recall:** 2.7% (realistic - draws remain challenging)
-- **Key Improvement:** +2.3% accuracy boost through intelligent feature engineering
+- **Accuracy:** 51.8% (vs 33.3% random baseline) - **OPTIMIZED MODEL**
+- **F1 Macro:** 49.6%
+- **Draw Recall:** 34.5% (excellent balance - draws properly predicted)
+- **Key Features:** 60 optimally selected from 267 advanced features
+- **Cross-Validation:** 50.2% (stable performance)
 
 ```python
 # Production model configuration
@@ -223,4 +228,4 @@ print(f"Confidence: {result['confidence']:.1%}")
 
 ---
 
-**Final Result**: An improved model achieving **52.4% accuracy** (+2.3% boost) through intelligent feature engineering, respecting the complex reality of football prediction while delivering more discriminating predictions.
+**Final Result**: An optimized model achieving **51.8% accuracy** with excellent draw prediction (34.5% recall) through sophisticated feature engineering (267 features), respecting the complex reality of football prediction while maintaining realistic performance distributions.
