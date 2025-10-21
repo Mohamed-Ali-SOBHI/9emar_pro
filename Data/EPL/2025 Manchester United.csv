@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_83_89_2025-08-17 15:30:00,2025-08-17 15:30:00,True,89,Manchester United,l,83,Arsenal,1.37653,0,0,166,21,7,1.3298,l,1.37653,1.3304,1,1,259,23,3,1.3304

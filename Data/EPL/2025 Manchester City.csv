@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_228_88_2025-08-16 16:30:00,2025-08-16 16:30:00,False,88,Manchester City,w,228,Fulham,2.30519,4,4,227,19,8,2.6787,w,2.30519,0.465189,0,0,338,24,5,0.465189

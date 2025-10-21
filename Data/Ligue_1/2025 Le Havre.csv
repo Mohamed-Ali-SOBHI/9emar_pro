@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+Ligue_1 2025_171_282_2025-08-16 17:00:00,2025-08-16 17:00:00,False,282,Le Havre,l,171,Monaco,0.427494,1,1,403,25,0,0.27949999999999997,l,0.427494,1.88048,3,3,134,18,15,1.88048

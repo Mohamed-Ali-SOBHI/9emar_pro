@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_71_86_2025-08-16 11:30:00,2025-08-16 11:30:00,True,71,Aston Villa,d,86,Newcastle United,0.318601,0,0,227,12,2,0.42579999999999996,d,0.318601,1.40098,0,0,146,24,6,1.40098

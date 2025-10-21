@@ -1,0 +1,11 @@
+date,time,league,home_team,away_team,prediction,prediction_detail,confidence,prob_loss,prob_draw,prob_win,odds_home,odds_draw,odds_away
+2025-08-16,12:12:07,EPL,Aston Villa,Newcastle United,Aston Villa,Aston Villa (Home Win),0.385,0.348,0.267,0.385,2.25,3.60,3.00
+2025-08-16,12:12:07,EPL,Brighton,Fulham,Brighton,Brighton (Home Win),0.495,0.220,0.285,0.495,1.83,3.70,4.20
+2025-08-16,12:12:07,EPL,Sunderland,West Ham,West Ham,West Ham (Away Win),0.420,0.420,0.314,0.265,3.25,3.20,2.30
+2025-08-16,12:12:07,EPL,Tottenham,Burnley,Tottenham,Tottenham (Home Win),0.618,0.163,0.219,0.618,1.53,4.20,6.00
+2025-08-16,12:12:07,Ligue_1,Lens,Lyon,Lens,Lens (Home Win),0.404,0.308,0.288,0.404,2.35,3.60,2.88
+2025-08-16,12:12:07,Ligue_1,Monaco,Le Havre,Monaco,Monaco (Home Win),0.771,0.076,0.153,0.771,1.25,6.50,10.00
+2025-08-16,12:12:07,La_liga,Mallorca,Barcelona,Barcelona,Barcelona (Away Win),0.724,0.724,0.135,0.141,7.00,5.50,1.38
+2025-08-16,12:12:07,Ligue_1,Nice,Toulouse,Nice,Nice (Home Win),0.441,0.272,0.286,0.441,2.00,3.50,3.00
+2025-08-16,12:12:07,La_liga,Alaves,Levante,Alaves,Alaves (Home Win),0.415,0.304,0.281,0.415,2.00,3.50,3.00
+2025-08-16,12:12:07,La_liga,Valencia,Real Sociedad,Valencia,Valencia (Home Win),0.416,0.296,0.287,0.416,2.00,3.50,3.00

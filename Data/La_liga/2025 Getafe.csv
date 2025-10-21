@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+La_liga 2025_142_152_2025-08-17 15:00:00,2025-08-17 15:00:00,False,142,Getafe,w,152,Celta Vigo,1.50131,2,2,308,19,6,2.0608,w,1.50131,0.744247,0,0,110,29,11,0.744247

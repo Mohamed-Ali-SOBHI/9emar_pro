@@ -1,0 +1,4 @@
+date,time,league,home_team,away_team,prediction,prediction_detail,confidence,prob_loss,prob_draw,prob_win,odds_home,odds_draw,odds_away
+2025-08-16,00:32:19,La_liga,Girona,Rayo Vallecano,Girona,Girona (Home Win),0.420,0.270,0.310,0.420,2.25,3.25,3.30
+2025-08-16,00:32:19,Ligue_1,Rennes,Marseille,Marseille,Marseille (Away Win),0.496,0.496,0.261,0.243,3.75,3.60,1.95
+2025-08-16,00:32:19,EPL,Liverpool,Bournemouth,Liverpool,Liverpool (Home Win),0.772,0.064,0.165,0.772,1.30,6.00,8.50

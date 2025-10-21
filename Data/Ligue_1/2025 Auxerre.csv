@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+Ligue_1 2025_179_275_2025-08-17 15:15:00,2025-08-17 15:15:00,True,275,Auxerre,w,179,Lorient,1.4925,1,1,307,31,1,1.0882,w,0.732401,1.84516,0,0,224,20,3,1.84516

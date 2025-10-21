@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+Ligue_1 2025_167_290_2025-08-17 15:15:00,2025-08-17 15:15:00,False,290,Paris FC,l,167,Angers,0.71125,0,0,149,17,4,1.1839,l,0.71125,0.82142,1,1,355,16,2,0.82142

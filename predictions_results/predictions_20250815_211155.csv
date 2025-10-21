@@ -1,0 +1,14 @@
+date,time,league,home_team,away_team,prediction,prediction_detail,confidence,prob_loss,prob_draw,prob_win,odds_home,odds_draw,odds_away
+2025-08-15,21:11:55,La_liga,Girona,Rayo Vallecano,Girona,Girona (Home Win),0.420,0.270,0.310,0.420,2.25,3.25,3.30
+2025-08-15,21:11:55,Ligue_1,Rennes,Marseille,Marseille,Marseille (Away Win),0.496,0.496,0.261,0.243,3.75,3.60,1.95
+2025-08-15,21:11:55,EPL,Liverpool,Bournemouth,Liverpool,Liverpool (Home Win),0.772,0.064,0.165,0.772,1.30,6.00,8.50
+2025-08-15,21:11:55,EPL,Aston Villa,Newcastle United,Aston Villa,Aston Villa (Home Win),0.378,0.353,0.269,0.378,2.25,3.50,2.90
+2025-08-15,21:11:55,EPL,Brighton,Fulham,Brighton,Brighton (Home Win),0.474,0.233,0.294,0.474,1.91,3.60,4.00
+2025-08-15,21:11:55,EPL,Sunderland,West Ham,West Ham,West Ham (Away Win),0.452,0.452,0.292,0.256,3.30,3.40,2.20
+2025-08-15,21:11:55,EPL,Tottenham,Burnley,Tottenham,Tottenham (Home Win),0.419,0.317,0.263,0.419,2.00,3.50,3.00
+2025-08-15,21:11:55,Ligue_1,Lens,Lyon,Lens,Lens (Home Win),0.440,0.280,0.279,0.440,2.00,3.50,3.00
+2025-08-15,21:11:55,Ligue_1,Monaco,Le Havre,Monaco,Monaco (Home Win),0.435,0.285,0.280,0.435,2.00,3.50,3.00
+2025-08-15,21:11:55,La_liga,Mallorca,Barcelona,Mallorca,Mallorca (Home Win),0.438,0.314,0.248,0.438,2.00,3.50,3.00
+2025-08-15,21:11:55,Ligue_1,Nice,Toulouse,Nice,Nice (Home Win),0.441,0.272,0.286,0.441,2.00,3.50,3.00
+2025-08-15,21:11:55,La_liga,Alaves,Levante,Alaves,Alaves (Home Win),0.415,0.304,0.281,0.415,2.00,3.50,3.00
+2025-08-15,21:11:55,La_liga,Valencia,Real Sociedad,Valencia,Valencia (Home Win),0.416,0.296,0.287,0.416,2.00,3.50,3.00

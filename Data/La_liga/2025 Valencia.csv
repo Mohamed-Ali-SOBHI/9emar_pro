@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+La_liga 2025_140_146_2025-08-16 19:30:00,2025-08-16 19:30:00,True,146,Valencia,d,140,Real Sociedad,1.58599,1,1,218,12,9,1.7890000000000001,d,1.58599,1.04897,1,1,242,20,4,1.04897

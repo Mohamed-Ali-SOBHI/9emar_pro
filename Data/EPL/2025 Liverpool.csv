@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_73_87_2025-08-15 19:00:00,2025-08-15 19:00:00,True,87,Liverpool,w,73,Bournemouth,2.33007,4,4,149,17,9,1.877,w,2.33007,1.57303,2,2,278,24,8,1.57303

@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+Ligue_1 2025_163_164_2025-08-15 18:45:00,2025-08-15 18:45:00,True,163,Rennes,w,164,Marseille,1.31418,1,1,347,9,3,0.8577,w,1.31418,2.07298,0,0,160,24,7,2.07298

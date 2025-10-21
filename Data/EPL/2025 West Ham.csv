@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_77_81_2025-08-16 14:00:00,2025-08-16 14:00:00,False,81,West Ham,l,77,Sunderland,0.558948,0,0,165,15,8,1.129,l,0.558948,0.724368,3,3,291,14,2,0.724368

@@ -38,11 +38,3 @@ Thumbs.db
 
 # Logs
 *.log
-
-# Data files (if large)
-*.csv
-*.pkl
-*.joblib
-
-# Models (if large)
-models/

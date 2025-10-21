@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+EPL 2025_82_92_2025-08-16 14:00:00,2025-08-16 14:00:00,True,82,Tottenham,w,92,Burnley,1.97858,3,3,108,17,7,2.3089000000000004,w,1.97858,0.734138,0,0,295,17,6,0.734138

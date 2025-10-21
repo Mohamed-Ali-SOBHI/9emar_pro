@@ -1,0 +1,12 @@
+date,time,league,home_team,away_team,prediction,prediction_detail,confidence,prob_loss,prob_draw,prob_win,odds_home,odds_draw,odds_away
+2025-08-17,12:28:04,EPL,Nottingham Forest,Brentford,Nottingham Forest,Nottingham Forest (Home Win),0.424,0.275,0.301,0.424,2.15,3.25,3.60
+2025-08-17,12:28:04,EPL,Chelsea,Crystal Palace,Chelsea,Chelsea (Home Win),0.537,0.214,0.249,0.537,1.70,4.00,4.50
+2025-08-17,12:28:04,Ligue_1,Brest,Lille,Brest,Brest (Home Win),0.357,0.321,0.322,0.357,2.62,3.10,2.80
+2025-08-17,12:28:04,La_liga,Celta Vigo,Getafe,Celta Vigo,Celta Vigo (Home Win),0.615,0.127,0.258,0.615,1.62,3.60,6.50
+2025-08-17,12:28:04,Ligue_1,Angers,Paris Saint Germain,Paris Saint Germain,Paris Saint Germain (Away Win),0.460,0.460,0.279,0.261,3.10,3.40,2.30
+2025-08-17,12:28:04,Ligue_1,Auxerre,Lorient,Auxerre,Auxerre (Home Win),0.351,0.317,0.332,0.351,2.40,3.25,3.00
+2025-08-17,12:28:04,Ligue_1,Metz,Strasbourg,Strasbourg,Strasbourg (Away Win),0.446,0.446,0.309,0.245,3.40,3.40,2.15
+2025-08-17,12:28:04,EPL,Manchester United,Arsenal,Arsenal,Arsenal (Away Win),0.521,0.521,0.249,0.230,3.90,3.60,1.91
+2025-08-17,12:28:04,La_liga,Athletic Club,Sevilla,Athletic Club,Athletic Club (Home Win),0.395,0.318,0.287,0.395,2.00,3.50,3.00
+2025-08-17,12:28:04,Ligue_1,Nantes,Paris Saint Germain,Nantes,Nantes (Home Win),0.433,0.324,0.243,0.433,2.00,3.50,3.00
+2025-08-17,12:28:04,La_liga,Espanyol,Atletico Madrid,Espanyol,Espanyol (Home Win),0.425,0.320,0.255,0.425,2.00,3.50,3.00

@@ -1,0 +1,2 @@
+match_id,date,is_home,team_id,team_name,result,opponent_id,opponent_name,team_xG,team_shots,team_goals,team_ppda_att,team_ppda_def,team_deep,team_xpts,team_result,team_npxG,opponent_xG,opponent_shots,opponent_goals,opponent_ppda_att,opponent_ppda_def,opponent_deep,opponent_npxG
+La_liga 2025_148_239_2025-08-16 17:30:00,2025-08-16 17:30:00,True,239,Mallorca,l,148,Barcelona,0.529217,0,0,231,12,2,0.3698,l,0.529217,2.0243,3,3,121,30,19,2.0243
